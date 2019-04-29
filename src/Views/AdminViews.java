@@ -2,6 +2,7 @@ package Views;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import database.DBConnection;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -15,6 +16,7 @@ public class AdminViews extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_4;
 	private JTextField textField_5;
+    private DBConnection DB;
 
 	/**
 	 * Launch the application.
@@ -36,8 +38,10 @@ public class AdminViews extends JFrame {
 	 * Create the frame.
 	 */
 	public AdminViews() {
+        DB = new DBConnection();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 400);
+        //pack();
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -116,8 +120,8 @@ public class AdminViews extends JFrame {
 		textField_5.setBounds(120, 216, 272, 26);
 		contentPane.add(textField_5);
 
-        JButton btnProcess = new JButton("Login");
-        btnProcess.setBounds(32, 222, 117, 29);
+        JButton btnProcess = new JButton("Create");
+        btnProcess.setBounds(25, 300, 117, 29);
         contentPane.add(btnProcess);
 	}
 }
