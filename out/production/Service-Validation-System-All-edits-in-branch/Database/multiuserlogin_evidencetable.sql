@@ -26,15 +26,13 @@ CREATE TABLE `evidencetable` (
   `evidence_id` int(11) NOT NULL AUTO_INCREMENT,
   `evidence_type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`evidence_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `evidencetable`
 --
 
-LOCK TABLES `evidencetable` WRITE;
-/*!40000 ALTER TABLE `evidencetable` DISABLE KEYS */;
 INSERT INTO `evidencetable` VALUES (1,'Picture'),(2,'Document'),(3,'Video');
 /*!40000 ALTER TABLE `evidencetable` ENABLE KEYS */;
 UNLOCK TABLES;

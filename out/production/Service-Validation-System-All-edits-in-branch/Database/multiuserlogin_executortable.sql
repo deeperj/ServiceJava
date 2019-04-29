@@ -25,18 +25,15 @@ DROP TABLE IF EXISTS `executortable`;
 CREATE TABLE `executortable` (
   `Executor_Name` varchar(45) DEFAULT NULL,
   `Executor_Email` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `executortable`
 --
 
-LOCK TABLES `executortable` WRITE;
-/*!40000 ALTER TABLE `executortable` DISABLE KEYS */;
 INSERT INTO `executortable` VALUES ('Miebaka','mtoby2018@fau.com');
 /*!40000 ALTER TABLE `executortable` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

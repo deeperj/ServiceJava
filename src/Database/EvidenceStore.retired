@@ -4,11 +4,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-private static final String INSERT_USERS_SQL = "INSERT INTO users" +
-    "  (id, name, email, country, password) VALUES " +
-    " (?, ?, ?, ?, ?);";
 
 public class EvidenceStore extends database.DBConnection {
+    private static final String INSERT_USERS_SQL = "INSERT INTO users" +
+        "  (id, name, email, country, password) VALUES " +
+        " (?, ?, ?, ?, ?);";
+
     public EvidenceStore(){
         super();
     }

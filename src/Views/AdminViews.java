@@ -1,22 +1,26 @@
 package Views;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+
+import Services.Task;
 import database.DBConnection;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AdminViews extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField txTaskNumber;
+	private JTextField txEvidence;
+	private JTextField txTaskName;
+	private JTextField txProcssOnwer;
+	private JTextField txEmail;
     private DBConnection DB;
+    private Task task=new Task();
 
 	/**
 	 * Launch the application.
@@ -47,10 +51,11 @@ public class AdminViews extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(120, 66, 272, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txTaskNumber = new JTextField();
+		//txTaskNumber.setText("txTaskNumber");
+		txTaskNumber.setBounds(120, 66, 272, 26);
+		contentPane.add(txTaskNumber);
+		txTaskNumber.setColumns(10);
 		
 		JTextPane txtpnServiceValidationSystem = new JTextPane();
 		txtpnServiceValidationSystem.setText("SERVICE VALIDATION SYSTEM");
@@ -81,47 +86,66 @@ public class AdminViews extends JFrame {
 		lblEvidenceType.setBounds(25, 252, 97, 16);
 		contentPane.add(lblEvidenceType);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(123, 246, 272, 26);
-		contentPane.add(textField_1);
+		txEvidence = new JTextField();
+		txEvidence.setColumns(10);
+		txEvidence.setBounds(123, 246, 272, 26);
+        //txEvidence.setText("txEvidence");
+		contentPane.add(txEvidence);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(120, 104, 272, 26);
-		contentPane.add(textField_2);
+		txTaskName = new JTextField();
+		txTaskName.setColumns(10);
+		txTaskName.setBounds(120, 104, 272, 26);
+        //txTaskName.setText("txTaskName");
+		contentPane.add(txTaskName);
 		
 		JLabel lblTaskDescription = new JLabel("Task Description");
 		lblTaskDescription.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblTaskDescription.setBounds(25, 136, 108, 16);
 		contentPane.add(lblTaskDescription);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(125, 135, 256, 32);
-		contentPane.add(textArea);
+		JTextArea taDescription = new JTextArea();
+		taDescription.setBounds(125, 135, 256, 32);
+		contentPane.add(taDescription);
 		
 		JLabel lblProcessOwner = new JLabel("Executor");
 		lblProcessOwner.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblProcessOwner.setBounds(29, 190, 97, 16);
 		contentPane.add(lblProcessOwner);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(120, 183, 272, 26);
-		contentPane.add(textField_4);
+		txProcssOnwer = new JTextField();
+		txProcssOnwer.setColumns(10);
+		txProcssOnwer.setBounds(120, 183, 272, 26);
+        //txProcssOnwer.setText("txProcssOnwer");
+		contentPane.add(txProcssOnwer);
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		lblEmail.setBounds(25, 224, 97, 16);
 		contentPane.add(lblEmail);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(120, 216, 272, 26);
-		contentPane.add(textField_5);
+		txEmail = new JTextField();
+		txEmail.setColumns(10);
+		txEmail.setBounds(120, 216, 272, 26);
+        //txEmail.setText("txEmail");
+		contentPane.add(txEmail);
 
         JButton btnProcess = new JButton("Create");
         btnProcess.setBounds(25, 300, 117, 29);
+        btnProcess.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    task.setTaskNumber(Integer.parseInt(txTaskNumber.getText()));
+                }catch (NumberFormatException nfe){
+                    JOptionPane.showMessageDialog(null,"Invalid Task Number");
+                    return;
+                }task.setTaskName(txTaskName.getText());
+                task.setTaskDescription(taDescription.getText());
+                if(task.insert())
+                    JOptionPane.showMessageDialog(null,"Success!");
+                else
+                    JOptionPane.showMessageDialog(null,"An error occurred. Check if the record exists");
+            }
+        });
         contentPane.add(btnProcess);
 	}
 }

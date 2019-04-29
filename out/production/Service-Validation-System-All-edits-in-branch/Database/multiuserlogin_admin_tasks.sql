@@ -34,7 +34,6 @@ CREATE TABLE `admin_tasks` (
 -- Dumping data for table `admin_tasks`
 --
 
-LOCK TABLES `admin_tasks` WRITE;
 /*!40000 ALTER TABLE `admin_tasks` DISABLE KEYS */;
 INSERT INTO `admin_tasks` VALUES (1,'dsgsdg','oneee');
 /*!40000 ALTER TABLE `admin_tasks` ENABLE KEYS */;

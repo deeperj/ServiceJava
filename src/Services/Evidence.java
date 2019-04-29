@@ -1,14 +1,20 @@
 package Services;
 
-import Database.EvidenceStore;
+//import Database.EvidenceStore;
 
-public class Evidence {
-    private EvidenceStore evidenceStore;
-
-    public Evidence(){
-        evidenceStore=new EvidenceStore();
-    }
-    public insert(){
-
-    }
+enum Evidence {
+    Video, //(0),
+    Document, //(1),
+    Picture //(2)
 }
+
+//public class Evidence {
+//    private EvidenceStore evidenceStore;
+//
+//    public Evidence(){
+//        evidenceStore=new EvidenceStore();
+//    }
+//    public insert(){
+//
+//    }
+//}

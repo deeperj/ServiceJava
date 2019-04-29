@@ -20,24 +20,15 @@
 --
 
 DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `users` (
   `Username` varchar(50) DEFAULT NULL,
   `Password` varchar(50) DEFAULT NULL,
   `Usertype` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES ('Admin','Admin','Administrator'),('PO','PO','Process Owner'),('EX','EX','Executor'),('AP','AP','Approver');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
